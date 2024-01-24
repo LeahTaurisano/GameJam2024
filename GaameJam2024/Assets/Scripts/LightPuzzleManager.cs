@@ -10,28 +10,14 @@ public class LightPuzzleManager : MonoBehaviour
     private static int dimensions = 5;
     private static Lights lightComponent;
     private static List<List<GameObject>> lights;
+    private static int activeCount = 0;
     private static bool solved = false;
     private bool created = false;
     private bool open = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         lights = new List<List<GameObject>>();
-    }
-
-    private void Update()
-    {
-        if (solved)
-        {
-            foreach (List<GameObject> row in lights)
-            {
-                foreach (GameObject light in row)
-                {
-                    light.GetComponent<SpriteRenderer>().color = Color.green;
-                }
-            }
-        }
     }
 
     private void OnMouseDown()
@@ -119,17 +105,29 @@ public class LightPuzzleManager : MonoBehaviour
             lightComponent = lights[yIndex + 1][xIndex].GetComponent<Lights>();
             lightComponent.FlipActive();
         }
-        solved = true;
-        foreach (List<GameObject> row in lights)
+        if (activeCount >= dimensions * dimensions)
         {
-            foreach (GameObject toCheck in row)
+            solved = true;
+        }
+        if (solved)
+        {
+            foreach (List<GameObject> row in lights)
             {
-                if (!toCheck.GetComponent<Lights>().GetActive())
+                foreach (GameObject toCheck in row)
                 {
-                    solved = false;
+                    toCheck.GetComponent<SpriteRenderer>().color = Color.green;
                 }
             }
         }
+    }
 
+    public static void IncrementActiveCount(bool increment)
+    {
+        if (increment)
+        {
+            ++activeCount;
+            return;
+        }
+        --activeCount;
     }
 }

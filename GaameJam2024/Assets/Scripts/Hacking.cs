@@ -7,13 +7,6 @@ public class Hacking : MonoBehaviour
 {
     [SerializeField] List<GameObject> Shapes;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return))

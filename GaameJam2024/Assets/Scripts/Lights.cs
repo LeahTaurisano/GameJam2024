@@ -30,11 +30,13 @@ public class Lights : MonoBehaviour
         {
             active = false;
             lightSprite.color = Color.gray;
+            LightPuzzleManager.IncrementActiveCount(false);
         }
         else
         {
             active = true;
             lightSprite.color = Color.yellow;
+            LightPuzzleManager.IncrementActiveCount(true);
         }
     }
 

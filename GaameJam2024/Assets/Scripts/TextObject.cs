@@ -7,13 +7,10 @@ public class TextObject : MonoBehaviour
     [SerializeField] private string text;
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Chatbox.IsActive())
         {
-            if (!Chatbox.IsActive())
-            {
-                Chatbox.SetText(text);
-                Chatbox.SetActive(true);
-            }
+            Chatbox.SetText(text);
+            Chatbox.SetActive(true);
         }
     }
 }
