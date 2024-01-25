@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class SlideBlock : MonoBehaviour
 {
-    [SerializeField] private Vector2Int correctPos;
+    [SerializeField] private int correctPos;
+    [SerializeField] private GameObject emptyBlock;
+    [SerializeField] private SlideBlock emptyBlockComponent;
+    [SerializeField] public bool isEmpty;
 
     private bool inPosition;
-    private SpriteRenderer blockSprite;
-    private SlideBlock blockComponent;
-    private int xPos, yPos;
+    public int currentPos;
 
-    void Start()
+    private void OnMouseDown()
     {
-        blockSprite = gameObject.GetComponent<SpriteRenderer>();
-        blockComponent = gameObject.GetComponent<SlideBlock>();
+        if (Input.GetMouseButtonDown(0) && !SlidePuzzleManager.GetSolved() && !isEmpty)
+        {
+            SlidePuzzleManager.SwapBlocks(this);
+        }
     }
 
-    public void SetIndex(int x, int y)
+    public void Swap()
     {
-        xPos = x;
-        yPos = y;
+        int tempIndex = currentPos;
+        currentPos = emptyBlockComponent.GetIndex();
+        emptyBlockComponent.SetIndex(tempIndex);
+
+        Vector3 tempPosition = gameObject.transform.position;
+        gameObject.transform.position = emptyBlock.transform.position;
+        emptyBlock.transform.position = tempPosition;
+
+        if (currentPos == correctPos)
+        {
+            inPosition = true;
+        }
     }
 
     public bool IsCorrect()
@@ -28,13 +41,13 @@ public class SlideBlock : MonoBehaviour
         return inPosition;
     }
 
-    public Vector2Int GetIndex()
+    public int GetIndex()
     {
-        return new Vector2Int(xPos, yPos);
+        return currentPos;
     }
 
-    public void SetCorrectPosition(Vector2Int position)
+    public void SetIndex(int index)
     {
-        correctPos = position;
+        currentPos = index;
     }
 }
