@@ -7,7 +7,7 @@ public class Lights : MonoBehaviour
     private bool active;
     private SpriteRenderer lightSprite;
     private Lights lightComponent;
-    public int xPos, yPos;
+    private int xPos, yPos;
 
     private void Start()
     {

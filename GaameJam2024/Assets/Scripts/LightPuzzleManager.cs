@@ -62,7 +62,9 @@ public class LightPuzzleManager : MonoBehaviour
             List<GameObject> row = new List<GameObject>();
             for (int x = 0; x < dimensions; ++x)
             {
-                GameObject toAdd = Instantiate(lightBox, new Vector3(x, y, 0), Quaternion.identity);
+                float xPos = gameObject.transform.position.x + x + lightBox.GetComponent<SpriteRenderer>().size.x;
+                float yPos = gameObject.transform.position.y + y + lightBox.GetComponent<SpriteRenderer>().size.y;
+                GameObject toAdd = Instantiate(lightBox, new Vector3(xPos, yPos, 0), Quaternion.identity);
                 Lights lightComponent = toAdd.GetComponent<Lights>();
                 lightComponent.SetIndex(x, y);
                 row.Add(toAdd);
