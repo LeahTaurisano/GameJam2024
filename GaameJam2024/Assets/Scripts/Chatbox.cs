@@ -40,6 +40,11 @@ public class Chatbox : MonoBehaviour
                     }
                     else
                     {
+                        if (textToDisplay[chatIndex] == '~')
+                        {
+                            chatText.text += "\n";
+                            ++chatIndex;
+                        }
                         chatText.text += textToDisplay[chatIndex];
                     }
                     ++chatIndex;
