@@ -9,7 +9,7 @@ public class SlidePuzzleManager : MonoBehaviour
 
     private static int dimensions = 5;
     private static bool solved = false;
-    private bool open = false;
+    private bool open = true;
     private static int emptyIndex;
 
     private void Start()
