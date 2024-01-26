@@ -9,7 +9,7 @@ public class SlideBlock : MonoBehaviour
     [SerializeField] private SlideBlock emptyBlockComponent;
     [SerializeField] public bool isEmpty;
 
-    private bool inPosition;
+    private bool inPosition = false;
     public int currentPos;
 
     private void OnMouseDown()
@@ -34,6 +34,28 @@ public class SlideBlock : MonoBehaviour
         {
             inPosition = true;
         }
+        else
+        {
+            inPosition = false;
+        }
+        if (emptyBlockComponent.GetCorrectPos() == emptyBlockComponent.GetIndex())
+        {
+            emptyBlockComponent.SetIsCorrect(true);
+        }
+        else
+        {
+            emptyBlockComponent.SetIsCorrect(false);
+        }
+    }
+
+    public int GetCorrectPos()
+    {
+        return correctPos;
+    }
+
+    public void SetIsCorrect(bool state)
+    {
+        inPosition = state;
     }
 
     public bool IsCorrect()
