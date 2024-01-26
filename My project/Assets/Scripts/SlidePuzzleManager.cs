@@ -5,11 +5,13 @@ using UnityEngine;
 public class SlidePuzzleManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> slideBlocks;
+    [SerializeField] private GameObject slideBlock;
     [SerializeField] private SlideBlock emptyBlock;
 
     private static int dimensions = 5;
     private static bool solved = false;
     private bool open = false;
+    private static int correctCount;
     private static int emptyIndex;
 
     private void Start()
@@ -56,11 +58,7 @@ public class SlidePuzzleManager : MonoBehaviour
 
     private void Update()
     {
-        if (open && !solved)
-        {
-            emptyIndex = emptyBlock.GetIndex();
-            CheckSolved();
-        }
+        emptyIndex = emptyBlock.GetIndex();
     }
 
     public static bool GetSolved()
@@ -68,25 +66,14 @@ public class SlidePuzzleManager : MonoBehaviour
         return solved;
     }
 
-    private void CheckSolved()
+    public static void IncrementCorrectCount(bool correct)
     {
-        int numCorrect = 0;
-        foreach (GameObject block in slideBlocks)
+        if (correct)
         {
-            SlideBlock component = block.GetComponent<SlideBlock>();
-            if (component.IsCorrect())
-            {
-                ++numCorrect;
-            }
-            else
-            {
-                --numCorrect;
-            }
+            ++correctCount;
+            return;
         }
-        if (numCorrect >= dimensions * dimensions)
-        {
-            solved = true;
-        }
+        --correctCount;
     }
 
     public static void SwapBlocks(SlideBlock block)
@@ -94,17 +81,14 @@ public class SlidePuzzleManager : MonoBehaviour
 
         int currentPos = block.GetIndex();
 
-        if (emptyIndex == currentPos + dimensions || emptyIndex == currentPos - dimensions)
+        if (emptyIndex == currentPos + dimensions || emptyIndex == currentPos - dimensions || emptyIndex == currentPos - 1 || emptyIndex == currentPos + 1)
         {
             block.Swap();
         }
-        else if (emptyIndex == currentPos - 1 && currentPos != 5 && currentPos != 10 && currentPos != 15 && currentPos != 20)
+        
+        if (correctCount >= dimensions * dimensions)
         {
-            block.Swap();
-        }
-        else if (emptyIndex == currentPos + 1 && currentPos != 4 && currentPos != 9 && currentPos != 14 && currentPos != 19)
-        {
-            block.Swap();
+            solved = true;
         }
         if (solved)
         {
