@@ -5,14 +5,26 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int health = 100;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        HackingLetters bullet = collision.gameObject.GetComponent<HackingLetters>();
+        if (bullet != null)
+        {
+            TakeDamage(bullet.GetDamage()); 
+            Destroy(collision.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TakeDamage(int damage)
     {
-        
+        health -= damage;
+
+        if (health <= 0) 
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 }

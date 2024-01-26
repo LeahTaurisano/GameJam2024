@@ -17,14 +17,15 @@ public class Hacking : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && isHacking)
+        if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && isHacking && enemy != null)
         {
+        
             Vector3 spawnPosition = this.transform.position + new Vector3(spawnOffset.x, spawnOffset.y, 0f);
             Vector3 directionToEnemy = (enemy.transform.position - spawnPosition).normalized;
 
             foreach (GameObject shapePrefab in Shapes)
             {
-               //new direction with the number spread
+                //new direction with the number spread
                 float angle = Random.Range(-coneAngle / 2, coneAngle / 2);
                 Vector3 coneDirection = Quaternion.Euler(0, 0, angle) * directionToEnemy;
 
@@ -32,6 +33,7 @@ public class Hacking : MonoBehaviour
                 GameObject shapeInstance = Instantiate(shapePrefab, spawnPosition, Quaternion.identity);
                 shapeInstance.GetComponent<HackingLetters>().SetDirection(coneDirection);
             }
+            
         }
     }
 }

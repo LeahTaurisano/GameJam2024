@@ -12,6 +12,8 @@ public class HackingLetters : MonoBehaviour
     [SerializeField] float destroyTime;
     float destroyTimer;
 
+
+    public int GetDamage ( ) { return damage; }
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
