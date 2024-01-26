@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
   m_Name: FullScreenDigitize
   m_EditorClassIdentifier: 
-  m_Active: 0
-  passMaterial: {fileID: -876546973899608171, guid: 15004c1bc312ca446bc1f888bf9994e5, type: 3}
+  m_Active: 1
+  passMaterial: {fileID: 2100000, guid: 4ae164321d5f4da47889ecf5f6264382, type: 2}
   injectionPoint: 450
   requirements: 4
   passIndex: 0

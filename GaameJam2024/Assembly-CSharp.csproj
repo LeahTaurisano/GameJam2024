@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\SlidePuzzleManager.cs" />
     <Compile Include="Assets\Scripts\LightPuzzleManager.cs" />
     <Compile Include="Assets\Scripts\Lights.cs" />
+    <Compile Include="Assets\Scripts\FullscreenTestController.cs" />
     <Compile Include="Assets\Scripts\Hacking.cs" />
     <Compile Include="Assets\Scripts\Chatbox.cs" />
     <Compile Include="Assets\Scripts\HackingLetters.cs" />

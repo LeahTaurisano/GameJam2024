@@ -34,7 +34,7 @@ public class FullscreenTestController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (_matrixEffect.isActive)
             {
@@ -49,6 +49,8 @@ public class FullscreenTestController : MonoBehaviour
 
     private IEnumerator Transition()
     {
+        UnityEngine.Debug.Log("First Enumerator");
+
         _matrixEffect.SetActive(true);
         _material.SetFloat(_alphaIntensity, _alphaStart);
 
@@ -69,6 +71,8 @@ public class FullscreenTestController : MonoBehaviour
 
     private IEnumerator TransitionOut()
     {
+        UnityEngine.Debug.Log("Second Enumerator");
+
         float elapsedTime = 0f;
         while (elapsedTime < _matrixFadeOutTime)
         {

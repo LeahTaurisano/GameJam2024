@@ -933,6 +933,55 @@ Transform:
   m_Father: {fileID: 1051426290}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &184362755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 184362757}
+  - component: {fileID: 184362756}
+  m_Layer: 0
+  m_Name: MatrixTextEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &184362756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184362755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81025cc3461a5b47a5704a8a98aac99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _active: 0
+  _matrixFadeInTime: 1
+  _matrixFadeOutTime: 5.5
+  _matrixEffect: {fileID: 591886991756879686, guid: a2acbea27936ba64b8b60d6fd779d20c, type: 2}
+  _material: {fileID: -876546973899608171, guid: 0a6875b945f0e3245a5c340a76a7f020, type: 3}
+--- !u!4 &184362757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184362755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7791923, y: 1.1708106, z: -15.962842}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &191123292
 PrefabInstance:
   m_ObjectHideFlags: 0
