@@ -6,18 +6,20 @@ using UnityEngine;
 
 public class Chatbox : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI chatText;
+    [SerializeField] private TextMeshProUGUI chatText;
+    [SerializeField] private float serializedChatSpeed;
 
     private Canvas chatCanvas;
     private int chatIndex = 0;
     private static string textToDisplay;
     private static bool boxActive = false;
-    private static float chatSpeed = 0.05f;
+    private static float chatSpeed;
     private float timer = 0;
     private bool textWaiting = false;
     // Start is called before the first frame update
     void Start()
     {
+        chatSpeed = serializedChatSpeed;
         chatCanvas = gameObject.GetComponent<Canvas>();
         chatCanvas.enabled = boxActive;
         chatText.text = "";

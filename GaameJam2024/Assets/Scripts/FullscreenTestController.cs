@@ -8,11 +8,11 @@ using UnityEngine.Rendering.Universal;
 public class FullscreenTestController : MonoBehaviour
 {
     [Header("Toggle")]
-    [SerializeField] private bool _active = false;
+    //[SerializeField] private bool _active = false;
 
 
     [Header("Time Stats")]
-    [SerializeField] private float _matrixFadeInTime = 1.0f;
+    //[SerializeField] private float _matrixFadeInTime = 1.0f;
     [SerializeField] private float _matrixFadeOutTime = 5.5f;
 
 
@@ -25,7 +25,7 @@ public class FullscreenTestController : MonoBehaviour
     private const float _alphaStart = 0.0f;
     private const float _alphaEnd = 1.0f;
 
-    private float iterate = 0.0f;
+    //private float iterate = 0.0f;
 
     private void Start()
     {
