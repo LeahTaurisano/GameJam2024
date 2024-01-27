@@ -12,7 +12,7 @@ public class FlagManager : MonoBehaviour
     public static bool foundManual = false;
 
     //Act 2
-    public static bool canDigitize = false;
+    public static bool canDigitize = true;
     public static bool inDigitalWorld = false;
     public static bool cloneExists = false;
     public static bool checkedFirewall = false;

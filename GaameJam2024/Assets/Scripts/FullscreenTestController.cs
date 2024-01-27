@@ -34,23 +34,18 @@ public class FullscreenTestController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (FlagManager.inDigitalWorld && !_matrixEffect.isActive)
         {
-            if (_matrixEffect.isActive)
-            {
-                StartCoroutine(TransitionOut());
-            }
-            else
-            {
-                StartCoroutine(Transition());
-            }
+            StartCoroutine(Transition());
+        }
+        else if (!FlagManager.inDigitalWorld && _matrixEffect.isActive)
+        {
+            StartCoroutine(TransitionOut());
         }
     }
 
     private IEnumerator Transition()
     {
-        UnityEngine.Debug.Log("First Enumerator");
-
         _matrixEffect.SetActive(true);
         _material.SetFloat(_alphaIntensity, _alphaStart);
 
@@ -71,8 +66,6 @@ public class FullscreenTestController : MonoBehaviour
 
     private IEnumerator TransitionOut()
     {
-        UnityEngine.Debug.Log("Second Enumerator");
-
         float elapsedTime = 0f;
         while (elapsedTime < _matrixFadeOutTime)
         {

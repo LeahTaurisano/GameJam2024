@@ -16,30 +16,22 @@ public class ChatManager : MonoBehaviour
         worldCamera = serializedCamera;
     }
 
-    //public static bool CheckRange(float rangeCheckRadius)
-    //{
-    //    Vector3 mousePos = worldCamera.ScreenToWorldPoint(Input.mousePosition);
-    //    mousePos.z += 10;
-
-    //    if (Vector3.Distance(mousePos, player.transform.position) <= rangeCheckRadius)
-    //    {
-    //        Chatbox.SetText(text);
-    //    }
-    //}
-
-    public static void ProcessText(string text, float rangeCheckRadius)
+    public static bool CheckInRange(float rangeCheckRadius)
     {
         Vector3 mousePos = worldCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z += 10;
 
         if (Vector3.Distance(mousePos, player.transform.position) <= rangeCheckRadius)
         {
-            Chatbox.SetText(text);
+            return true;
         }
-        else
-        {
-            Chatbox.SetText("I need to get closer to check that./|");
-        }
+
+        return false;
+    }
+
+    public static void ProcessText(string text)
+    {
+        Chatbox.SetText(text);
         Chatbox.SetActive(true);
     }
 }

@@ -10,9 +10,11 @@ public class Digitizer : MonoBehaviour
     [SerializeField] private List<GameObject> realItems;
     [SerializeField] private List<GameObject> digitalItems;
     [SerializeField] private float digitizeDelay;
+    [SerializeField] private GameObject fireWall;
 
     private GameObject[] interactables;
     private bool digitizeDisabled = false;
+    private bool removedFirewall = false;
     private float timer;
 
     private void Start()
@@ -30,6 +32,11 @@ public class Digitizer : MonoBehaviour
                 timer = 0;
                 digitizeDisabled = false;
             }
+        }
+        if (!removedFirewall && FlagManager.disabledFirewall)
+        {
+            digitalItems.Remove(fireWall);
+            removedFirewall = true;
         }
     }
 
