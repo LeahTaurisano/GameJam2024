@@ -78,4 +78,9 @@ public class FullscreenTestController : MonoBehaviour
         }
         _matrixEffect.SetActive(false);
     }
+
+    private void OnApplicationQuit()
+    {
+        _matrixEffect.SetActive(false);
+    }
 }

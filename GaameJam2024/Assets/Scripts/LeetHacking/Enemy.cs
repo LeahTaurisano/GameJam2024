@@ -23,6 +23,12 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0) 
         {
+            GameObject[] hackingNumbers = GameObject.FindGameObjectsWithTag("HackingNumbers"); ;
+            foreach (GameObject number in hackingNumbers)
+            {
+                Destroy(number);
+            }
+            Hacking.FlipHackingScreen(false);
             Destroy(this.gameObject);
         }
 

@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlagManager : MonoBehaviour
 {
+    //General
+    public static bool isHacking = false;
+
     //Act 1
     public static bool gameStartFlag = true;
     public static bool talkedToComputer = false;
@@ -12,7 +16,7 @@ public class FlagManager : MonoBehaviour
     public static bool foundManual = false;
 
     //Act 2
-    public static bool canDigitize = true;
+    public static bool canDigitize = false;
     public static bool inDigitalWorld = false;
     public static bool cloneExists = false;
     public static bool checkedFirewall = false;
@@ -25,4 +29,12 @@ public class FlagManager : MonoBehaviour
     public static bool usedImportantFile = false;
     public static bool askedCloneForHelp = false;
     public static bool completedSecondHack = false;
+
+    private void Update()
+    {
+        if (isHacking && !Chatbox.IsActive())
+        {
+            Hacking.FlipHackingScreen(true);
+        }
+    }
 }

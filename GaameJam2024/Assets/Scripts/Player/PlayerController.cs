@@ -56,7 +56,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveCharacter(movement);
+        if (!FlagManager.isHacking)
+        {
+            MoveCharacter(movement);
+        }
     }
 
     void MoveCharacter(Vector2 direction)

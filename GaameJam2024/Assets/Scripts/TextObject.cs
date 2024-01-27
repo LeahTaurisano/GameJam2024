@@ -46,7 +46,8 @@ public class TextObject : MonoBehaviour
                             else if (!FlagManager.canDigitize) //replace with item functionality
                             {
                                 text = "Placeholder text: Second Computer check. This is the first hack./|";
-                                FlagManager.canDigitize = true; //replace with first hack success
+                                FlagManager.isHacking = true;
+                                //FlagManager.canDigitize = true; //replace with first hack success
                             }
                             else if (!FlagManager.checkedFirewall) //replace all of this with computer UI interface
                             {
