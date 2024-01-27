@@ -6,6 +6,9 @@ TagManager:
   tags:
   - LightPuzzle
   - Interactable
+  - Enemy
+  - HackingNumbers
+  - InteractableUI
   layers:
   - Default
   - TransparentFX

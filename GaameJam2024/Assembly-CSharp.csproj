@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\ChatManager.cs" />
     <Compile Include="Assets\Scripts\FullscreenTestController.cs" />
     <Compile Include="Assets\Scripts\LeetHacking\Hacking.cs" />
+    <Compile Include="Assets\Scripts\ComputerUIManager.cs" />
     <Compile Include="Assets\Scripts\Chatbox.cs" />
     <Compile Include="Assets\Scripts\Digitizer.cs" />
     <Compile Include="Assets\Scripts\LeetHacking\Enemy.cs" />

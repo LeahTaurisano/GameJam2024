@@ -13,7 +13,7 @@ public class TextObject : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0) && !Chatbox.IsActive())
+        if (Input.GetMouseButtonDown(0) && !Chatbox.IsActive() && !FlagManager.isHacking)
         {
             if (ChatManager.CheckInRange(rangeCheckRadius))
             {
