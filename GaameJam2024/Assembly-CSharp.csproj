@@ -62,8 +62,10 @@
     <Compile Include="Assets\Scripts\SlideBlock.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SlidePuzzleManager.cs" />
+    <Compile Include="Assets\Scripts\FlagManager.cs" />
     <Compile Include="Assets\Scripts\LightPuzzleManager.cs" />
     <Compile Include="Assets\Scripts\Lights.cs" />
+    <Compile Include="Assets\Scripts\ChatManager.cs" />
     <Compile Include="Assets\Scripts\FullscreenTestController.cs" />
     <Compile Include="Assets\Scripts\LeetHacking\Hacking.cs" />
     <Compile Include="Assets\Scripts\Chatbox.cs" />
