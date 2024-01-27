@@ -782,6 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 122304836}
   - component: {fileID: 122304835}
+  - component: {fileID: 122304837}
   m_Layer: 0
   m_Name: Keyboard_1
   m_TagString: Interactable
@@ -856,6 +857,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &122304837
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122304834}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 1}
+    newSize: {x: 2, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.7636323, y: -0.027664661}
+      - {x: -0.94911146, y: -0.18770003}
+      - {x: -0.94063044, y: -0.37277937}
+      - {x: 0.6207595, y: -0.3727795}
+      - {x: 0.80603886, y: -0.20022202}
+      - {x: 0.8230014, y: -0.040386677}
+  m_UseDelaunayMesh: 0
 --- !u!1 &147374319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 2
   objectName: FileCabinet
+  isVirtual: 0
 --- !u!1 &167019982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 1.2
   objectName: Digitizer
+  isVirtual: 0
 --- !u!1 &270572744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 3
   objectName: Bed
+  isVirtual: 0
 --- !u!1 &328123660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,7 +1617,7 @@ GameObject:
   - component: {fileID: 328123663}
   - component: {fileID: 328123662}
   m_Layer: 0
-  m_Name: ExitIcon
+  m_Name: ChatIcon
   m_TagString: InteractableUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1590,7 +1645,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328123660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1631,7 +1686,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeCheckRadius: 10
-  objectName: LightPuzzleIcon
+  objectName: ChatIcon
+  isVirtual: 0
 --- !u!212 &328123664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1639,7 +1695,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328123660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2074,7 +2130,7 @@ GameObject:
   - component: {fileID: 471844318}
   - component: {fileID: 471844321}
   m_Layer: 0
-  m_Name: ManualHolder
+  m_Name: Closet
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2093,7 +2149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeCheckRadius: 2.5
-  objectName: ManualHolder
+  objectName: Closet
+  isVirtual: 0
 --- !u!212 &471844319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2135,7 +2192,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae0c7345b0545a142bf31af4c78d1bed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2154,7 +2211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471844317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.7902, y: 2.4702, z: 0}
+  m_LocalPosition: {x: 5.84, y: 3.55, z: 0}
   m_LocalScale: {x: 1.6605, y: 1.6605, z: 1.6605}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2193,18 +2250,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.005276561, y: -0.18056524}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1496186, y: 1.9267449}
   m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
@@ -2383,7 +2440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559794818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.9, y: -1.9, z: 0.054037713}
+  m_LocalPosition: {x: -10.81, y: -2.06, z: 0.054037713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2763,6 +2820,142 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8661259373430428364, guid: 264d126fe23f39f4b975459320256134, type: 3}
   m_PrefabInstance: {fileID: 587549048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &670324891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670324892}
+  - component: {fileID: 670324895}
+  - component: {fileID: 670324894}
+  - component: {fileID: 670324893}
+  m_Layer: 0
+  m_Name: ExitIcon
+  m_TagString: InteractableUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670324892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670324891}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.9941783, y: -2.28, z: 17.046585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1430876237}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &670324893
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670324891}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &670324894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670324891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6336b5c1096b3ab4e9c750076a39df30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeCheckRadius: 10
+  objectName: ExitIcon
+  isVirtual: 0
+--- !u!212 &670324895
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670324891}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1001 &675385341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5195,6 +5388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 2
   objectName: Computer
+  isVirtual: 0
 --- !u!1001 &766617243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5379,7 +5573,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772176869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -5421,6 +5615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 10
   objectName: HackIcon
+  isVirtual: 0
 --- !u!212 &772176873
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5428,7 +5623,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772176869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5573,6 +5768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 2.5
   objectName: Tower
+  isVirtual: 0
 --- !u!61 &786786100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5766,6 +5962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 819176826}
   - component: {fileID: 819176827}
+  - component: {fileID: 819176828}
   m_Layer: 0
   m_Name: ComputerBackground
   m_TagString: InteractableUI
@@ -5795,7 +5992,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819176825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5840,6 +6037,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &819176828
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819176825}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.05082881, y: 0.47068447}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.018923782, y: 0.058631092}
+  m_EdgeRadius: 0
 --- !u!1001 &906776164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6190,6 +6432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 1.5
   objectName: RecycleBin
+  isVirtual: 0
 --- !u!1 &963863726
 GameObject:
   m_ObjectHideFlags: 0
@@ -7069,6 +7312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1430876237}
+  - component: {fileID: 1430876238}
   m_Layer: 0
   m_Name: ComputerUI
   m_TagString: Untagged
@@ -7092,9 +7336,22 @@ Transform:
   - {fileID: 772176870}
   - {fileID: 1936975239}
   - {fileID: 328123661}
+  - {fileID: 670324892}
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1430876238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430876236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b8a0ca884b5ca4f91669bb399f0a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1434549132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7481,6 +7738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 1.5
   objectName: PizzaBox
+  isVirtual: 0
 --- !u!60 &1467482303
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7731,6 +7989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 2
   objectName: Clone
+  isVirtual: 0
 --- !u!60 &1527775690
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8326,6 +8585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 1.5
   objectName: Plug
+  isVirtual: 0
 --- !u!212 &1751521651
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8579,6 +8839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 1.5
   objectName: Trashcan
+  isVirtual: 0
 --- !u!1001 &1863438954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8906,7 +9167,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936975238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -8948,6 +9209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 10
   objectName: LightPuzzleIcon
+  isVirtual: 0
 --- !u!212 &1936975242
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8955,7 +9217,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936975238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9353,6 +9615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeCheckRadius: 2
   objectName: Firewall
+  isVirtual: 0
 --- !u!1001 &2097552271
 PrefabInstance:
   m_ObjectHideFlags: 0

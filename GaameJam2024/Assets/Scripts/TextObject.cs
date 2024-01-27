@@ -10,6 +10,7 @@ public class TextObject : MonoBehaviour
     [SerializeField] private string objectName;
 
     private string text;
+    public bool isVirtual;
 
     private void OnMouseDown()
     {
@@ -46,39 +47,89 @@ public class TextObject : MonoBehaviour
                             else if (!FlagManager.canDigitize) //replace with item functionality
                             {
                                 text = "Placeholder text: Second Computer check. This is the first hack./|";
-                                FlagManager.isHacking = true;
-                            }  
-                            else if (!FlagManager.checkedFirewall) //replace all of this with computer UI interface
-                            {
-                                text = "Placeholder text: Interacting with computer./|";
+                                ComputerUIManager.FlipDesktopUI(true);
                             }
-                            else if (!FlagManager.disabledFirewall)
+                            else if (!FlagManager.usedImportantFile && FlagManager.foundImportantFile)
                             {
-                                text = "Placeholder text: Doing the light puzzle/|";
-                                FlagManager.disabledFirewall = true;
-                            }
-                            else if (!FlagManager.foundImportantFile)
-                            {
-                                text = "Placeholder text: Interacting with computer/|";
-                            }
-                            else if (!FlagManager.usedImportantFile)
-                            {
-                                text = "Placeholder text: Using file on computer/|";
+                                text = "Placeholder text: Used important file/|";
                                 FlagManager.usedImportantFile = true;
-                            }
-                            else if (!FlagManager.askedCloneForHelp)
-                            {
-                                text = "Placeholder text: Interacting with computer/|";
-                            }
-                            else if (!FlagManager.completedSecondHack)
-                            {
-                                text = "Placeholder text: Two person hacking with your clone./|";
-                                FlagManager.isHacking = true;
                             }
                             else
                             {
-                                text = "Placeholder text: After finishing second hack./|";
+                                ComputerUIManager.FlipDesktopUI(true);
                             }
+                        }
+                        break;
+                    case "HackIcon":
+                        {
+                            if (!FlagManager.canDigitize)
+                            {
+                                text = "Placeholder text: Initiate first hack/|";
+                                FlagManager.isHacking = true;
+                            }
+                            else if (FlagManager.usedImportantFile && !FlagManager.askedCloneForHelp)
+                            {
+                                text = "Placeholer text: Unwinnable hack/|";
+                            }
+                            else if (FlagManager.usedImportantFile && FlagManager.askedCloneForHelp)
+                            {
+                                text = "Placeholder text: Two person hack/|";
+                                FlagManager.completedSecondHack = true;
+                            }
+                        }
+                        break;
+                    case "LightPuzzleIcon":
+                        {
+                            if (!FlagManager.foundEncryptionKey)
+                            {
+                                text = "Placeholder text: Find encryption key/|";
+                            }
+                            else if (!FlagManager.disabledFirewall)
+                            {
+                                text = "Placeholder text: Solve light puzzle/|";
+                                FlagManager.disabledFirewall = true;
+                            }
+                            else
+                            {
+                                text = "Placeholder text: Already solved puzzle/|";
+                            }
+                        }
+                        break;
+                    case "ChatIcon":
+                        {
+                            if (!FlagManager.canDigitize)
+                            {
+                                text = "Placeholder Text: Hint to hack/|";
+                            }
+                            if (!FlagManager.foundEncryptionKey)
+                            {
+                                text = "Placeholder Text: Hint to find encryption key/|";
+                            }
+                            else if (!FlagManager.disabledFirewall)
+                            {
+                                text = "Placeholder Text: Tells you to solve light puzzle/|";
+                            }
+                            else if (!FlagManager.foundImportantFile)
+                            {
+                                text = "Placeholder Text: Hint to get file from sliding puzzle/|";
+                            }
+                            else if (!FlagManager.usedImportantFile)
+                            {
+                                text = "Placeholder Text: Hint to use important file/|";
+                            }
+                            else if (!FlagManager.askedCloneForHelp)
+                            {
+                                text = "Placeholder Text: Hint to ask clone for help/|";
+                            }
+                            else
+                            {
+                                text = "This text probably shouldn't pop up, something is wrong/|";
+                            }
+                        }
+                        break;
+                    case "ExitIcon":
+                        {
+                            ComputerUIManager.FlipDesktopUI(false);
                         }
                         break;
                     case "Plug":
@@ -115,7 +166,7 @@ public class TextObject : MonoBehaviour
                             }
                         }
                         break;
-                    case "ManualHolder":
+                    case "Closet":
                         {
                             if (!FlagManager.unplugComputer || !FlagManager.foundKey)
                             {
@@ -167,11 +218,6 @@ public class TextObject : MonoBehaviour
                             {
                                 text = "Placeholder text: File Cabinet before disabling firewall/|";
                             }
-                            else if (!FlagManager.foundEncryptionKey)
-                            {
-                                text = "Placeholder text: File Cabinet without encryption key/|";
-                                FlagManager.checkedFileCabinet = true;
-                            }
                             else if (!FlagManager.foundImportantFile)
                             {
                                 text = "Placeholder text: Finding important file/|";
@@ -195,13 +241,13 @@ public class TextObject : MonoBehaviour
                             }
                             else if (!FlagManager.putKeyInTrash)
                             {
-                                if (!FlagManager.checkedFileCabinet)
+                                if (!FlagManager.checkedFirewall)
                                 {
-                                    text = "Placeholder text: Putting key in trash before checking~file cabinet/|";
+                                    text = "Placeholder text: Putting key in trash before checking~firewall/|";
                                 }
                                 else
                                 {
-                                    text = "Placeholder text: Putting key in trash before checking~file cabinet/|";
+                                    text = "Placeholder text: Putting key in trash after checking~firewall/|";
                                 }
                                 FlagManager.putKeyInTrash = true;
                             }
@@ -217,13 +263,13 @@ public class TextObject : MonoBehaviour
                         break;
                     case "RecycleBin":
                         {
-                            if (!FlagManager.checkedFileCabinet && !FlagManager.putKeyInTrash && !FlagManager.foundEncryptionKey)
+                            if (!FlagManager.checkedFirewall && !FlagManager.putKeyInTrash && !FlagManager.foundEncryptionKey)
                             {
-                                text = "Placeholder text: Recycling bin before checking file~cabinet and putting key in trash/|";
+                                text = "Placeholder text: Recycling bin before checking firewall~before putting key in trash/|";
                             }
-                            else if (FlagManager.checkedFileCabinet && !FlagManager.putKeyInTrash && !FlagManager.foundEncryptionKey)
+                            else if (FlagManager.checkedFirewall && !FlagManager.putKeyInTrash && !FlagManager.foundEncryptionKey)
                             {
-                                text = "Placeholder text: Recycling bin after checking file~cabinet before putting key in trash/|";
+                                text = "Placeholder text: Recycling bin after checking firewall~before putting key in trash/|";
                             }
                             else if (FlagManager.putKeyInTrash && !FlagManager.foundEncryptionKey)
                             {

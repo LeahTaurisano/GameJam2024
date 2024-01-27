@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!FlagManager.isHacking)
+        if (!ComputerUIManager.activeUI)
         {
             MoveCharacter(movement);
         }

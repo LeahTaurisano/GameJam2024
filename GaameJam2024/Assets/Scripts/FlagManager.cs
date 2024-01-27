@@ -21,7 +21,6 @@ public class FlagManager : MonoBehaviour
     public static bool cloneExists = false;
     public static bool checkedFirewall = false;
     public static bool disabledFirewall = false;
-    public static bool checkedFileCabinet = false;
     public static bool putKeyInTrash = false;
     public static bool foundEncryptionKey = false;
     public static bool foundImportantFile = false;
