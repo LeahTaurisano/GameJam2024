@@ -53,10 +53,10 @@ public class Digitizer : MonoBehaviour
                 {
                     interactable.GetComponent<SpriteRenderer>().color = Color.green;
                 }
-                foreach (GameObject interactable in uiInteractables)
-                {
-                    interactable.GetComponent<SpriteRenderer>().color = Color.green;
-                }
+                //foreach (GameObject interactable in uiInteractables)
+                //{
+                //    interactable.GetComponent<SpriteRenderer>().color = Color.green;
+                //}
                 foreach (GameObject real in realItems)
                 {
                     real.GetComponent<SpriteRenderer>().enabled = false;
@@ -77,10 +77,10 @@ public class Digitizer : MonoBehaviour
                 {
                     interactable.GetComponent<SpriteRenderer>().color = Color.white;
                 }
-                foreach (GameObject interactable in uiInteractables)
-                {
-                    interactable.GetComponent<SpriteRenderer>().color = Color.white;
-                }
+                //foreach (GameObject interactable in uiInteractables)
+                //{
+                //    interactable.GetComponent<SpriteRenderer>().color = Color.white;
+                //}
                 foreach (GameObject real in realItems)
                 {
                     real.GetComponent<SpriteRenderer>().enabled = true;

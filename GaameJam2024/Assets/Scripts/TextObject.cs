@@ -56,6 +56,7 @@ public class TextObject : MonoBehaviour
                             else
                             {
                                 ComputerUIManager.FlipDesktopUI(true);
+                                return;
                             }
                         }
                         break;
@@ -99,7 +100,7 @@ public class TextObject : MonoBehaviour
                             {
                                 text = "Placeholder Text: Hint to hack/|";
                             }
-                            if (!FlagManager.foundEncryptionKey)
+                            else if (!FlagManager.foundEncryptionKey)
                             {
                                 text = "Placeholder Text: Hint to find encryption key/|";
                             }
@@ -218,8 +219,7 @@ public class TextObject : MonoBehaviour
                             }
                             else if (!FlagManager.foundImportantFile)
                             {
-                                text = "Placeholder text: Finding important file/|";
-                                FlagManager.foundImportantFile = true;
+                                return;
                             }
                             else
                             {

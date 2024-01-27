@@ -7,13 +7,14 @@ public class FlagManager : MonoBehaviour
 {
     //General
     public static bool isHacking = false;
+    public static bool slidePuzzleOpen = false;
 
     //Act 1
     public static bool gameStartFlag = true;
     public static bool talkedToComputer = false;
-    public static bool unplugComputer = true;
+    public static bool unplugComputer = false;
     public static bool foundKey = false;
-    public static bool foundManual = true;
+    public static bool foundManual = false;
 
     //Act 2
     public static bool canDigitize = false;

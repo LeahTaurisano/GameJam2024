@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!ComputerUIManager.activeUI)
+        if (!ComputerUIManager.activeUI && !FlagManager.slidePuzzleOpen)
         {
             MoveCharacter(movement);
         }

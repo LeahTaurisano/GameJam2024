@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
                 Destroy(number);
             }
             Hacking.FlipHackingScreen(false);
-            Destroy(this.gameObject);
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
     }
