@@ -21,6 +21,11 @@ public class Hacking : MonoBehaviour
     }
     private void Update()
     {
+        if (FlagManager.isHacking && !Chatbox.IsActive())
+        {
+            FlipHackingScreen(true);
+        }
+
         if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && hackingScreenOpen && enemy != null)
         {
         

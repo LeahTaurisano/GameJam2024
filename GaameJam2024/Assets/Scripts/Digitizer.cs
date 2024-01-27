@@ -13,6 +13,8 @@ public class Digitizer : MonoBehaviour
     [SerializeField] private GameObject fireWall;
 
     private GameObject[] interactables;
+    private GameObject[] uiInteractables;
+
     private bool digitizeDisabled = false;
     private bool removedFirewall = false;
     private float timer;
@@ -20,6 +22,7 @@ public class Digitizer : MonoBehaviour
     private void Start()
     {
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
+        uiInteractables = GameObject.FindGameObjectsWithTag("InteractableUI");
     }
 
     private void Update()
@@ -50,6 +53,10 @@ public class Digitizer : MonoBehaviour
                 {
                     interactable.GetComponent<SpriteRenderer>().color = Color.green;
                 }
+                foreach (GameObject interactable in uiInteractables)
+                {
+                    interactable.GetComponent<SpriteRenderer>().color = Color.green;
+                }
                 foreach (GameObject real in realItems)
                 {
                     real.GetComponent<SpriteRenderer>().enabled = false;
@@ -67,6 +74,10 @@ public class Digitizer : MonoBehaviour
             else
             {
                 foreach (GameObject interactable in interactables)
+                {
+                    interactable.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                foreach (GameObject interactable in uiInteractables)
                 {
                     interactable.GetComponent<SpriteRenderer>().color = Color.white;
                 }

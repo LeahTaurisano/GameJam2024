@@ -10,7 +10,6 @@ public class TextObject : MonoBehaviour
     [SerializeField] private string objectName;
 
     private string text;
-    public bool isVirtual;
 
     private void OnMouseDown()
     {
@@ -67,6 +66,10 @@ public class TextObject : MonoBehaviour
                                 text = "Placeholder text: Initiate first hack/|";
                                 FlagManager.isHacking = true;
                             }
+                            else if (!FlagManager.usedImportantFile)
+                            {
+                                text = "Placeholder text: Second hack not available/|";
+                            }
                             else if (FlagManager.usedImportantFile && !FlagManager.askedCloneForHelp)
                             {
                                 text = "Placeholer text: Unwinnable hack/|";
@@ -84,14 +87,9 @@ public class TextObject : MonoBehaviour
                             {
                                 text = "Placeholder text: Find encryption key/|";
                             }
-                            else if (!FlagManager.disabledFirewall)
-                            {
-                                text = "Placeholder text: Solve light puzzle/|";
-                                FlagManager.disabledFirewall = true;
-                            }
                             else
                             {
-                                text = "Placeholder text: Already solved puzzle/|";
+                                return;
                             }
                         }
                         break;
@@ -130,8 +128,8 @@ public class TextObject : MonoBehaviour
                     case "ExitIcon":
                         {
                             ComputerUIManager.FlipDesktopUI(false);
+                            return;
                         }
-                        break;
                     case "Plug":
                         {
                             if (!FlagManager.talkedToComputer)

@@ -11,9 +11,9 @@ public class FlagManager : MonoBehaviour
     //Act 1
     public static bool gameStartFlag = true;
     public static bool talkedToComputer = false;
-    public static bool unplugComputer = false;
+    public static bool unplugComputer = true;
     public static bool foundKey = false;
-    public static bool foundManual = false;
+    public static bool foundManual = true;
 
     //Act 2
     public static bool canDigitize = false;
@@ -28,12 +28,4 @@ public class FlagManager : MonoBehaviour
     public static bool usedImportantFile = false;
     public static bool askedCloneForHelp = false;
     public static bool completedSecondHack = false;
-
-    private void Update()
-    {
-        if (isHacking && !Chatbox.IsActive())
-        {
-            Hacking.FlipHackingScreen(true);
-        }
-    }
 }

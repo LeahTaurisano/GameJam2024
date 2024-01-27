@@ -2,40 +2,33 @@ using UnityEngine;
 
 public class ComputerUIManager : MonoBehaviour
 {
-    private static GameObject[] interactableObjects;
-    private static GameObject[] interactableUI;
+    [SerializeField] Vector3 cameraStartPositionSerialized;
+    [SerializeField] Vector3 cameraUIPositionSerialized;
+    [SerializeField] GameObject serializedCamera;
 
+    private static GameObject mainCamera;
+    private static Vector3 cameraStartPosition;
+    private static Vector3 cameraUIPosition;
     public static bool activeUI = false;
 
     private void Start()
     {
-        interactableObjects = GameObject.FindGameObjectsWithTag("Interactable");
-        interactableUI = GameObject.FindGameObjectsWithTag("InteractableUI");
+        cameraStartPosition = cameraStartPositionSerialized;
+        cameraUIPosition = cameraUIPositionSerialized;
+        mainCamera = serializedCamera;
     }
 
     public static void FlipDesktopUI(bool active)
     {
-        foreach (GameObject interactable in interactableUI)
+        if (active)
         {
-            interactable.GetComponent<SpriteRenderer>().enabled = active;
-            interactable.GetComponent<Collider2D>().enabled = active;
-            activeUI = active;
+            mainCamera.transform.position = cameraUIPosition;
         }
-        foreach (GameObject interactable in interactableObjects)
+        else
         {
-            bool isVirtual = interactable.GetComponent<TextObject>().isVirtual;
-            if (!isVirtual && !FlagManager.inDigitalWorld)
-            {
-                interactable.GetComponent<SpriteRenderer>().enabled = !active;
-                interactable.GetComponent<Collider2D>().enabled = !active;
-            }
-            else if (isVirtual && FlagManager.inDigitalWorld)
-            {
-                interactable.GetComponent<SpriteRenderer>().enabled = !active;
-                interactable.GetComponent<Collider2D>().enabled = !active;
-            }
-            activeUI = !active;
+            mainCamera.transform.position = cameraStartPosition;
         }
+        activeUI = active;
     }
 
 }
