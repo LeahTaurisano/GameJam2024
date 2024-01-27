@@ -16,6 +16,17 @@ public class ChatManager : MonoBehaviour
         worldCamera = serializedCamera;
     }
 
+    //public static bool CheckRange(float rangeCheckRadius)
+    //{
+    //    Vector3 mousePos = worldCamera.ScreenToWorldPoint(Input.mousePosition);
+    //    mousePos.z += 10;
+
+    //    if (Vector3.Distance(mousePos, player.transform.position) <= rangeCheckRadius)
+    //    {
+    //        Chatbox.SetText(text);
+    //    }
+    //}
+
     public static void ProcessText(string text, float rangeCheckRadius)
     {
         Vector3 mousePos = worldCamera.ScreenToWorldPoint(Input.mousePosition);

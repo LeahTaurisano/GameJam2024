@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - LightPuzzle
+  - Interactable
   layers:
   - Default
   - TransparentFX
