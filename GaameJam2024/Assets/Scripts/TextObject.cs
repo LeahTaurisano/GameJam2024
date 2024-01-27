@@ -47,8 +47,7 @@ public class TextObject : MonoBehaviour
                             {
                                 text = "Placeholder text: Second Computer check. This is the first hack./|";
                                 FlagManager.isHacking = true;
-                                //FlagManager.canDigitize = true; //replace with first hack success
-                            }
+                            }  
                             else if (!FlagManager.checkedFirewall) //replace all of this with computer UI interface
                             {
                                 text = "Placeholder text: Interacting with computer./|";
@@ -74,7 +73,7 @@ public class TextObject : MonoBehaviour
                             else if (!FlagManager.completedSecondHack)
                             {
                                 text = "Placeholder text: Two person hacking with your clone./|";
-                                FlagManager.completedSecondHack = true;
+                                FlagManager.isHacking = true;
                             }
                             else
                             {
