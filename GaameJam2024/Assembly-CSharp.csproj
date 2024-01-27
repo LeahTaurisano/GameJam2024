@@ -67,12 +67,10 @@
     <Compile Include="Assets\Scripts\Lights.cs" />
     <Compile Include="Assets\Scripts\ChatManager.cs" />
     <Compile Include="Assets\Scripts\FullscreenTestController.cs" />
-    <Compile Include="Assets\Scripts\Hacking.cs" />
+    <Compile Include="Assets\Scripts\LeetHacking\Hacking.cs" />
     <Compile Include="Assets\Scripts\Chatbox.cs" />
-    <Compile Include="Assets\Scripts\Digitizer.cs" />
-    <Compile Include="Assets\Scripts\HackingLetters.cs" />
-    <Compile Include="Assets\Scripts\CloneComponent.cs" />
-    <Compile Include="Assets\Scripts\DestroyFirewall.cs" />
+    <Compile Include="Assets\Scripts\LeetHacking\Enemy.cs" />
+    <Compile Include="Assets\Scripts\LeetHacking\HackingLetters.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
