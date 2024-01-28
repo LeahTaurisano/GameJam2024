@@ -10,8 +10,12 @@ public class Chatbox : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI chatText;
     [SerializeField] private float serializedChatSpeed;
-    [SerializeField] private Image playerChathead;
-    [SerializeField] private Image cloneChathead;
+    [SerializeField] private Image playerChatheadHappy;
+    [SerializeField] private Image playerChatheadMean;
+    [SerializeField] private Image playerChatheadAngry;
+    [SerializeField] private Image cloneChatheadHappy;
+    [SerializeField] private Image cloneChatheadMean;
+    [SerializeField] private Image cloneChatheadAngry;
     [SerializeField] private Image computerChatheadHappy;
     [SerializeField] private Image computerChatheadAngry;
     [SerializeField] private Image computerChatheadConfused;
@@ -47,8 +51,22 @@ public class Chatbox : MonoBehaviour
                 if (textToDisplay[chatIndex] == '*')
                 {
                     ResetChatheads();
-                    playerChathead.enabled = true;
                     ++chatIndex;
+                    if (textToDisplay[chatIndex] == '1')
+                    {
+                        playerChatheadHappy.enabled = true;
+                        ++chatIndex;
+                    }
+                    else if (textToDisplay[chatIndex] == '2')
+                    {
+                        playerChatheadMean.enabled = true;
+                        ++chatIndex;
+                    }
+                    else if (textToDisplay[chatIndex] == '3')
+                    {
+                        playerChatheadAngry.enabled = true;
+                        ++chatIndex;
+                    }
                 }
                 else if (textToDisplay[chatIndex] == '+')
                 {
@@ -78,8 +96,22 @@ public class Chatbox : MonoBehaviour
                 else if (textToDisplay[chatIndex] == '&')
                 {
                     ResetChatheads();
-                    cloneChathead.enabled = true;
                     ++chatIndex;
+                    if (textToDisplay[chatIndex] == '1')
+                    {
+                        cloneChatheadHappy.enabled = true;
+                        ++chatIndex;
+                    }
+                    else if (textToDisplay[chatIndex] == '2')
+                    {
+                        cloneChatheadMean.enabled = true;
+                        ++chatIndex;
+                    }
+                    else if (textToDisplay[chatIndex] == '3')
+                    {
+                        cloneChatheadAngry.enabled = true;
+                        ++chatIndex;
+                    }
                 }
                 timer += Time.deltaTime;
                 if (timer >= chatSpeed)
@@ -153,8 +185,12 @@ public class Chatbox : MonoBehaviour
 
     private void ResetChatheads()
     {
-        playerChathead.enabled = false;
-        cloneChathead.enabled = false;
+        playerChatheadHappy.enabled = false;
+        playerChatheadMean.enabled = false;
+        playerChatheadAngry.enabled = false;
+        cloneChatheadHappy.enabled = false;
+        cloneChatheadMean.enabled = false;
+        cloneChatheadAngry.enabled = false;
         computerChatheadHappy.enabled = false;
         computerChatheadAngry.enabled = false;
         computerChatheadConfused.enabled = false;

@@ -14,7 +14,7 @@ public class ChatManager : MonoBehaviour
     {
         player = serializedPlayer;
         worldCamera = serializedCamera;
-        ProcessText("*Ahh, another day... Plenty of work to do today, I'd better head over to my computer!/|");
+        ProcessText("*1Ahh, another day... Plenty of work to do, I'd better head over to my computer!/|");
     }
 
     public static bool CheckInRange(float rangeCheckRadius)
