@@ -123,7 +123,7 @@ public class LightPuzzleManager : MonoBehaviour
             lightComponent = lights[yIndex + 1][xIndex].GetComponent<Lights>();
             lightComponent.FlipActive();
         }
-        if (activeCount >= dimensions * dimensions)
+        if (activeCount >= dimensions * dimensions || FlagManager.devMode)
         {
             solved = true;
         }

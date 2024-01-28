@@ -67,7 +67,7 @@ public class SlidePuzzleManager : MonoBehaviour
                 --numCorrect;
             }
         }
-        if (numCorrect >= dimensions * dimensions)
+        if (numCorrect >= dimensions * dimensions || FlagManager.devMode)
         {
             solved = true;
             TogglePuzzle();
