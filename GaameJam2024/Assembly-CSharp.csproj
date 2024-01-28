@@ -133,6 +133,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Text\AskingCloneForHelp.txt" />
     <None Include="Assets\Text\FirstHack.txt" />
+    <None Include="Assets\Text\ChatDoubleHackHint.txt" />
     <None Include="Assets\Text\DigitizerBeforeUnplug.txt" />
     <None Include="Assets\Text\RecycleAfterEncryption.txt" />
     <None Include="Assets\Text\SecondHackFail.txt" />

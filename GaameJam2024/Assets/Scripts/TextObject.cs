@@ -119,7 +119,7 @@ public class TextObject : MonoBehaviour
                             }
                             else
                             {
-                                text = "This text probably shouldn't pop up, something is wrong/|";
+                                text = System.IO.File.ReadAllText("Assets/Text/ChatDoubleHackHint.txt");
                             }
                         }
                         break;
