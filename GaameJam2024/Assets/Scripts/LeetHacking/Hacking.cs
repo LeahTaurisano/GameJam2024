@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Hacking : MonoBehaviour
@@ -9,15 +10,19 @@ public class Hacking : MonoBehaviour
     [SerializeField] float coneAngle;
     [SerializeField] Vector2 spawnOffset;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject serializedClone;
+
     private static GameObject enemy;
     private static GameObject hackingScreen;
     private static GameObject player;
+    private static GameObject clone;
     private static bool hackingScreenOpen;
 
     private void Start()
     {
         enemy = GameObject.FindWithTag("Enemy");
         player = gameObject;
+        clone = serializedClone;
         hackingScreen = gameObject.transform.parent.gameObject;
     }
     private void Update()
@@ -81,6 +86,13 @@ public class Hacking : MonoBehaviour
             else if (!FlagManager.completedSecondHack)
             {
                 string text = System.IO.File.ReadAllText("Assets/Text/SecondHackVictory.txt");
+                clone.transform.position = new Vector3(-5.3f, 1.62f, 0f);
+                clone.GetComponent<PolygonCollider2D>().enabled = false;
+                clone.GetComponent<SpriteRenderer>().enabled = true;
+                if (FlagManager.inDigitalWorld)
+                {
+                    clone.GetComponent<SpriteRenderer>().color = Color.green;
+                }
                 ComputerUIManager.FlipDesktopUI(false);
                 FlagManager.completedSecondHack = true;
                 ChatManager.ProcessText(text);
