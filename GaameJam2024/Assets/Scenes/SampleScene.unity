@@ -1271,6 +1271,7 @@ MonoBehaviour:
   - {fileID: 440086076}
   - {fileID: 111849402}
   emptyBlock: {fileID: 44272067}
+  firewall: {fileID: 2058565797}
 --- !u!1 &167019982
 GameObject:
   m_ObjectHideFlags: 0
@@ -6603,7 +6604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6336b5c1096b3ab4e9c750076a39df30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeCheckRadius: 1.5
+  rangeCheckRadius: 2
   objectName: RecycleBin
 --- !u!1 &1042961831
 GameObject:
@@ -7810,7 +7811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6336b5c1096b3ab4e9c750076a39df30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeCheckRadius: 1.5
+  rangeCheckRadius: 2
   objectName: PizzaBox
 --- !u!60 &1467482303
 PolygonCollider2D:
@@ -9085,7 +9086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6336b5c1096b3ab4e9c750076a39df30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeCheckRadius: 1.5
+  rangeCheckRadius: 2
   objectName: Trashcan
 --- !u!1001 &1863438954
 PrefabInstance:

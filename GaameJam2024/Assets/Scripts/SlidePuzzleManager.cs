@@ -6,6 +6,7 @@ public class SlidePuzzleManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> slideBlocks;
     [SerializeField] private SlideBlock emptyBlock;
+    [SerializeField] private GameObject firewall;
 
     private GameObject[] interactables;
     private static int dimensions = 5;
@@ -29,41 +30,7 @@ public class SlidePuzzleManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && FlagManager.disabledFirewall)
         {
-            if (open)
-            {
-                foreach (GameObject block in slideBlocks)
-                {
-                    if (!block.GetComponent<SlideBlock>().isEmpty)
-                    {
-                        block.GetComponent<SpriteRenderer>().enabled = false;
-                        block.GetComponent<BoxCollider2D>().enabled = false;
-                    }
-                }
-                open = false;
-                FlagManager.slidePuzzleOpen = false;
-                foreach (GameObject interactable in interactables)
-                {
-                    interactable.GetComponent<Collider2D>().enabled = true;     
-                }
-            }
-            else
-            {
-                foreach (GameObject block in slideBlocks)
-                {
-                    if (!block.GetComponent<SlideBlock>().isEmpty)
-                    {
-                        block.GetComponent<SpriteRenderer>().enabled = true;
-                        block.GetComponent<BoxCollider2D>().enabled = true;
-                    }
-                }
-                open = true;
-                FlagManager.slidePuzzleOpen = true;
-                foreach (GameObject interactable in interactables)
-                {
-                    interactable.GetComponent<Collider2D>().enabled = false;
-                }
-                gameObject.GetComponent<Collider2D>().enabled = true;
-            }
+            TogglePuzzle();
         }
     }
 
@@ -73,6 +40,10 @@ public class SlidePuzzleManager : MonoBehaviour
         {
             emptyIndex = emptyBlock.GetIndex();
             CheckSolved();
+        }
+        if (open && !FlagManager.inDigitalWorld)
+        {
+            TogglePuzzle();
         }
     }
 
@@ -99,23 +70,55 @@ public class SlidePuzzleManager : MonoBehaviour
         if (numCorrect >= dimensions * dimensions)
         {
             solved = true;
+            TogglePuzzle();
             FlagManager.foundImportantFile = true;
             string text = System.IO.File.ReadAllText("Assets/Text/FileObtained.txt");
-            foreach (GameObject block in slideBlocks)
+            ChatManager.ProcessText(text);
+        }
+    }
+
+    private void TogglePuzzle()
+    {
+        if (!FlagManager.foundImportantFile)
+        {
+            if (open)
             {
-                if (!block.GetComponent<SlideBlock>().isEmpty)
+                foreach (GameObject block in slideBlocks)
                 {
-                    block.GetComponent<SpriteRenderer>().enabled = false;
-                    block.GetComponent<BoxCollider2D>().enabled = false;
+                    if (!block.GetComponent<SlideBlock>().isEmpty)
+                    {
+                        block.GetComponent<SpriteRenderer>().enabled = false;
+                        block.GetComponent<BoxCollider2D>().enabled = false;
+                    }
+                }
+                open = false;
+                FlagManager.slidePuzzleOpen = false;
+                foreach (GameObject interactable in interactables)
+                {
+                    if (interactable != firewall)
+                    {
+                        interactable.GetComponent<Collider2D>().enabled = true;
+                    }
                 }
             }
-            open = false;
-            FlagManager.slidePuzzleOpen = false;
-            foreach (GameObject interactable in interactables)
+            else
             {
-                interactable.GetComponent<Collider2D>().enabled = true;
+                foreach (GameObject block in slideBlocks)
+                {
+                    if (!block.GetComponent<SlideBlock>().isEmpty)
+                    {
+                        block.GetComponent<SpriteRenderer>().enabled = true;
+                        block.GetComponent<BoxCollider2D>().enabled = true;
+                    }
+                }
+                open = true;
+                FlagManager.slidePuzzleOpen = true;
+                foreach (GameObject interactable in interactables)
+                {
+                    interactable.GetComponent<Collider2D>().enabled = false;
+                }
+                gameObject.GetComponent<Collider2D>().enabled = true;
             }
-            ChatManager.ProcessText(text);
         }
     }
 
@@ -135,10 +138,6 @@ public class SlidePuzzleManager : MonoBehaviour
         else if (emptyIndex == currentPos + 1 && currentPos != 4 && currentPos != 9 && currentPos != 14 && currentPos != 19)
         {
             block.Swap();
-        }
-        if (solved)
-        {
-            //solved things
         }
     }
 }
