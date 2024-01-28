@@ -79,7 +79,10 @@ public class Chatbox : MonoBehaviour
                         {
                           
                             chatText.text += textToDisplay[chatIndex];
-                            audioSource.Play(); 
+                            if (!audioSource.isPlaying) 
+                            {
+                                audioSource.Play();
+                            }
                         }
                         else
                         {
