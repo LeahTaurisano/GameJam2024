@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Chatbox : MonoBehaviour
@@ -105,6 +106,11 @@ public class Chatbox : MonoBehaviour
                     computerChathead.enabled = false;
                     chatIndex = 0;
                     boxActive = false;
+
+                    if (FlagManager.completedSecondHack)
+                    {
+                        SceneManager.LoadScene(2);
+                    }
                 }
             }
         }
