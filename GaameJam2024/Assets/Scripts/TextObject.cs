@@ -138,6 +138,7 @@ public class TextObject : MonoBehaviour
                             {
                                 text = System.IO.File.ReadAllText("Assets/Text/UnpluggingComputer.txt");
                                 FlagManager.unplugComputer = true;
+                                PlugSwap.UnplugPlugSprite();
                             }
                             else
                             {
