@@ -8,6 +8,7 @@ public class Hacking : MonoBehaviour
     [SerializeField] List<GameObject> Shapes;
     [SerializeField] float coneAngle;
     [SerializeField] Vector2 spawnOffset;
+    [SerializeField] AudioSource audioSource;
     private static GameObject enemy;
     private static GameObject hackingScreen;
     private static GameObject player;
@@ -28,7 +29,7 @@ public class Hacking : MonoBehaviour
 
         if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && hackingScreenOpen && enemy != null)
         {
-        
+            audioSource.Play(); 
             Vector3 spawnPosition = this.transform.position + new Vector3(spawnOffset.x, spawnOffset.y, 0f);
             Vector3 directionToEnemy = (enemy.transform.position - spawnPosition).normalized;
 

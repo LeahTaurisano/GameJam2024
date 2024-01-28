@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private int health = 100;
+    [SerializeField] private AudioSource audioSource;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0) 
         {
+            audioSource.Play();
             GameObject[] hackingNumbers = GameObject.FindGameObjectsWithTag("HackingNumbers"); ;
             foreach (GameObject number in hackingNumbers)
             {

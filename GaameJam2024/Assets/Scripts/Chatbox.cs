@@ -13,6 +13,9 @@ public class Chatbox : MonoBehaviour
     [SerializeField] private Image cloneChathead;
     [SerializeField] private Image computerChathead;
 
+    //sound
+    [SerializeField] AudioSource audioSource;
+
     private Canvas chatCanvas;
     private int chatIndex = 0;
     private static string textToDisplay;
@@ -72,8 +75,18 @@ public class Chatbox : MonoBehaviour
                             chatText.text += "\n";
                             ++chatIndex;
                         }
-                        chatText.text += textToDisplay[chatIndex];
+                         else if (textToDisplay[chatIndex] != ' ' && !IsSpecialCharacter(textToDisplay[chatIndex]))
+                        {
+                          
+                            chatText.text += textToDisplay[chatIndex];
+                            audioSource.Play(); 
+                        }
+                        else
+                        {
+                            chatText.text += textToDisplay[chatIndex];
+                        }
                     }
+
                     ++chatIndex;
                     timer = 0;
                 }
@@ -107,5 +120,9 @@ public class Chatbox : MonoBehaviour
     public static void SetText(string text)
     {
         textToDisplay = text;
+    }
+    private bool IsSpecialCharacter(char character)
+    {
+        return character == '*' || character == '+' || character == '&';
     }
 }

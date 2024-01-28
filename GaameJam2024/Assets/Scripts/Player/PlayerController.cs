@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] Rigidbody2D rb;
     private Vector2 movement;
- 
+    
 
     // Animation
    private Animator animator;
@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     private string currentState;
     private bool facingRight = true;
+
+    //sound 
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
@@ -44,11 +47,19 @@ public class PlayerController : MonoBehaviour
             //of moving reset timer update facing dir
             idleTimer = idleDelay;
             facingRight = moveHorizontal > 0;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
         else
         {
             //if not moving star timer
             idleTimer -= Time.deltaTime;
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
 
         UpdateAnimationState();
