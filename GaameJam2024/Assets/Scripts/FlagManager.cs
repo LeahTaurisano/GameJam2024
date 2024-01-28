@@ -30,12 +30,4 @@ public class FlagManager : MonoBehaviour
     public static bool usedImportantFile = false;
     public static bool askedCloneForHelp = false;
     public static bool completedSecondHack = false;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            devMode = true;
-        }
-    }
 }

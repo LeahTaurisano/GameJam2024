@@ -9,6 +9,7 @@ public class TextObject : MonoBehaviour
     [SerializeField] private float rangeCheckRadius;
     [SerializeField] private string objectName;
 
+    private TextAsset textAsset;
     private string text;
 
     private void OnMouseDown()
@@ -21,12 +22,14 @@ public class TextObject : MonoBehaviour
                 {
                     case "Tower":
                         {
-                            text = System.IO.File.ReadAllText("Assets/Text/Tower.txt");
+                            textAsset = (TextAsset)Resources.Load("Tower");
+                            text = textAsset.text;
                             break;
                         }
                     case "Bed":
                         {
-                            text = System.IO.File.ReadAllText("Assets/Text/Bed.txt");
+                            textAsset = (TextAsset)Resources.Load("Bed");
+                            text = textAsset.text;
                             break;
                         }
                     case "Computer":
@@ -37,20 +40,24 @@ public class TextObject : MonoBehaviour
                             }
                             if (!FlagManager.unplugComputer)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/FirstComputerCheck.txt");
+                                textAsset = (TextAsset)Resources.Load("FirstComputerCheck");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.foundManual)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ComputerBeforeManual.txt");
+                                textAsset = (TextAsset)Resources.Load("ComputerBeforeManual");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.canDigitize) //replace with item functionality
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ComputerPreFirstHack.txt");
+                                textAsset = (TextAsset)Resources.Load("ComputerPreFirstHack");
+                                text = textAsset.text;
                                 ComputerUIManager.FlipDesktopUI(true);
                             }
                             else if (!FlagManager.usedImportantFile && FlagManager.foundImportantFile)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/UploadFile.txt");
+                                textAsset = (TextAsset)Resources.Load("UploadFile");
+                                text = textAsset.text;
                                 FlagManager.usedImportantFile = true;
                             }
                             else
@@ -64,21 +71,25 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.canDigitize)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/FirstHack.txt");
+                                textAsset = (TextAsset)Resources.Load("FirstHack");
+                                text = textAsset.text;
                                 FlagManager.isHacking = true;
                             }
                             else if (!FlagManager.usedImportantFile)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/SecondHackUnavailable.txt");
+                                textAsset = (TextAsset)Resources.Load("SecondHackUnavailable");
+                                text = textAsset.text;
                             }
                             else if (FlagManager.usedImportantFile && !FlagManager.askedCloneForHelp)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/UnwinnableHack.txt");
+                                textAsset = (TextAsset)Resources.Load("UnwinnableHack");
+                                text = textAsset.text;
                                 FlagManager.isHacking = true;
                             }
                             else if (FlagManager.usedImportantFile && FlagManager.askedCloneForHelp)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/TwoPersonHack.txt");
+                                textAsset = (TextAsset)Resources.Load("TwoPersonHack");
+                                text = textAsset.text;
                                 FlagManager.isHacking = true;
                             }
                         }
@@ -87,7 +98,8 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.foundEncryptionKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/FirewallNoKey.txt");
+                                textAsset = (TextAsset)Resources.Load("FirewallNoKey");
+                                text = textAsset.text;
                             }
                             else
                             {
@@ -99,27 +111,33 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.canDigitize)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ChatHackHint.txt");
+                                textAsset = (TextAsset)Resources.Load("ChatHackHint");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.foundEncryptionKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ChatEncryptionHint.txt");
+                                textAsset = (TextAsset)Resources.Load("ChatEncryptionHint");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.disabledFirewall)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ChatLightPuzzleHint.txt");
+                                textAsset = (TextAsset)Resources.Load("ChatLightPuzzleHint");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.foundImportantFile)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/SlidePuzzleHint.txt");
+                                textAsset = (TextAsset)Resources.Load("SlidePuzzleHint");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.askedCloneForHelp)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ChatTwoPersonHackHint.txt");
+                                textAsset = (TextAsset)Resources.Load("ChatTwoPersonHackHint");
+                                text = textAsset.text;
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ChatDoubleHackHint.txt");
+                                textAsset = (TextAsset)Resources.Load("ChatDoubleHackHint");
+                                text = textAsset.text;
                             }
                         }
                         break;
@@ -132,17 +150,20 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.talkedToComputer)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/PlugBeforeComputer.txt");
+                                textAsset = (TextAsset)Resources.Load("PlugBeforeComputer");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.unplugComputer)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/UnpluggingComputer.txt");
+                                textAsset = (TextAsset)Resources.Load("UnpluggingComputer");
+                                text = textAsset.text;
                                 FlagManager.unplugComputer = true;
                                 PlugSwap.UnplugPlugSprite();
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/Unplugged.txt");
+                                textAsset = (TextAsset)Resources.Load("Unplugged");
+                                text = textAsset.text;
                             }
                         }
                         break;
@@ -150,16 +171,19 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.unplugComputer)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/PizzaBoxInitial.txt");
+                                textAsset = (TextAsset)Resources.Load("PizzaBoxInitial");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.foundKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/PizzaKey.txt");
+                                textAsset = (TextAsset)Resources.Load("PizzaKey");
+                                text = textAsset.text;
                                 FlagManager.foundKey = true;
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/PizzaAfterKey.txt");
+                                textAsset = (TextAsset)Resources.Load("PizzaAfterKey");
+                                text = textAsset.text;
                             }
                         }
                         break;
@@ -167,20 +191,24 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.unplugComputer)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ClosetBeforeUnplug.txt");
+                                textAsset = (TextAsset)Resources.Load("ClosetBeforeUnplug");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.foundKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ClosetWithoutKey.txt");
+                                textAsset = (TextAsset)Resources.Load("ClosetWithoutKey");
+                                text = textAsset.text;
                             }
-                            else if (!FlagManager.foundManual) //replace with item functionality
+                            else if (!FlagManager.foundManual)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/FindingManual.txt");
+                                textAsset = (TextAsset)Resources.Load("FindingManual");
+                                text = textAsset.text;
                                 FlagManager.foundManual = true;
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/ClosetAfterManual.txt");
+                                textAsset = (TextAsset)Resources.Load("ClosetAfterManual");
+                                text = textAsset.text;
                             }
                         }
                         break;
@@ -188,11 +216,13 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.unplugComputer)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/DigitizerBeforeUnplug.txt");
+                                textAsset = (TextAsset)Resources.Load("DigitizerBeforeUnplug");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.canDigitize)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/DigitizerAfterUnplug.txt");
+                                textAsset = (TextAsset)Resources.Load("DigitizerAfterUnplug");
+                                text = textAsset.text;
                             }
                             else
                             {
@@ -204,12 +234,14 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.checkedFirewall)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/FirewallFirstCheck.txt");
+                                textAsset = (TextAsset)Resources.Load("FirewallFirstCheck");
+                                text = textAsset.text;
                                 FlagManager.checkedFirewall = true;
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/FirewallGeneral.txt");
+                                textAsset = (TextAsset)Resources.Load("FirewallGeneral");
+                                text = textAsset.text;
                             }
                         }
                         break;
@@ -217,7 +249,8 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.disabledFirewall)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/FileCabinetWithFirewall.txt");
+                                textAsset = (TextAsset)Resources.Load("FileCabinetWithFirewall");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.foundImportantFile)
                             {
@@ -225,7 +258,8 @@ public class TextObject : MonoBehaviour
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/CabinetAfterFile.txt");
+                                textAsset = (TextAsset)Resources.Load("CabinetAfterFile");
+                                text = textAsset.text;
                             }
                         }
                         break;
@@ -233,31 +267,37 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.foundKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/TrashBeforeKey.txt");
+                                textAsset = (TextAsset)Resources.Load("TrashBeforeKey");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.foundManual) //replace with using key on trash
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/TrashBeforeManual.txt");
+                                textAsset = (TextAsset)Resources.Load("TrashBeforeManual");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.putKeyInTrash)
                             {
                                 if (!FlagManager.checkedFirewall)
                                 {
-                                    text = System.IO.File.ReadAllText("Assets/Text/TrashBeforeFirewall.txt");
+                                    textAsset = (TextAsset)Resources.Load("TrashBeforeFirewall");
+                                    text = textAsset.text;
                                 }
                                 else
                                 {
-                                    text = System.IO.File.ReadAllText("Assets/Text/TrashAfterFirewallCheck.txt");
+                                    textAsset = (TextAsset)Resources.Load("TrashAfterFirewallCheck");
+                                    text = textAsset.text;
                                 }
                                 FlagManager.putKeyInTrash = true;
                             }
                             else if (!FlagManager.foundEncryptionKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/KeyInTrash.txt");
+                                textAsset = (TextAsset)Resources.Load("KeyInTrash");
+                                text = textAsset.text;
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/TrashAfterEncryptionKey.txt");
+                                textAsset = (TextAsset)Resources.Load("TrashAfterEncryptionKey");
+                                text = textAsset.text;
                             }
                         }
                         break;
@@ -265,20 +305,24 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.checkedFirewall && !FlagManager.putKeyInTrash && !FlagManager.foundEncryptionKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/RecycleBeforeFirewall.txt");
+                                textAsset = (TextAsset)Resources.Load("RecycleBeforeFirewall");
+                                text = textAsset.text;
                             }
                             else if (FlagManager.checkedFirewall && !FlagManager.putKeyInTrash && !FlagManager.foundEncryptionKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/RecycleAfterFirewall.txt");
+                                textAsset = (TextAsset)Resources.Load("RecycleAfterFirewall");
+                                text = textAsset.text;
                             }
                             else if (FlagManager.putKeyInTrash && !FlagManager.foundEncryptionKey)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/GettingEncryptionKey.txt");
+                                textAsset = (TextAsset)Resources.Load("GettingEncryptionKey");
+                                text = textAsset.text;
                                 FlagManager.foundEncryptionKey = true;
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/RecycleAfterEncryption.txt");
+                                textAsset = (TextAsset)Resources.Load("RecycleAfterEncryption");
+                                text = textAsset.text;
                             }
                         }
                         break;
@@ -286,21 +330,25 @@ public class TextObject : MonoBehaviour
                         {
                             if (!FlagManager.talkedToClone)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/FirstCloneTalk.txt");
+                                textAsset = (TextAsset)Resources.Load("FirstCloneTalk");
+                                text = textAsset.text;
                                 FlagManager.talkedToClone = true;
                             }
                             else if (!FlagManager.usedImportantFile)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/CloneGeneralTalk.txt");
+                                textAsset = (TextAsset)Resources.Load("CloneGeneralTalk");
+                                text = textAsset.text;
                             }
                             else if (!FlagManager.askedCloneForHelp)
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/AskingCloneForHelp.txt");
+                                textAsset = (TextAsset)Resources.Load("AskingCloneForHelp");
+                                text = textAsset.text;
                                 FlagManager.askedCloneForHelp = true;
                             }
                             else
                             {
-                                text = System.IO.File.ReadAllText("Assets/Text/CloneWaitingForHack.txt");
+                                textAsset = (TextAsset)Resources.Load("CloneWaitingForHack");
+                                text = textAsset.text;
                             }
                         }
                         break;

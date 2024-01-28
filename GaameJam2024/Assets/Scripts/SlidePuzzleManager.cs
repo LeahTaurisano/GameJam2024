@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class SlidePuzzleManager : MonoBehaviour
 {
@@ -72,7 +73,8 @@ public class SlidePuzzleManager : MonoBehaviour
             solved = true;
             TogglePuzzle();
             FlagManager.foundImportantFile = true;
-            string text = System.IO.File.ReadAllText("Assets/Text/FileObtained.txt");
+            UnityEngine.TextAsset textAsset = (UnityEngine.TextAsset)Resources.Load("FileObtained");
+            string text = textAsset.text;
             ChatManager.ProcessText(text);
         }
     }

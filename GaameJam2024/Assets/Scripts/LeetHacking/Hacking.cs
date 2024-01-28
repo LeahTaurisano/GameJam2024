@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Hacking : MonoBehaviour
 {
@@ -74,20 +75,23 @@ public class Hacking : MonoBehaviour
         {
             if (!FlagManager.canDigitize)
             {
-                string text = System.IO.File.ReadAllText("Assets/Text/FirstHackVictory.txt");
+                UnityEngine.TextAsset textAsset = (UnityEngine.TextAsset)Resources.Load("FirstHackVictory");
+                string text = textAsset.text;
                 ChatManager.ProcessText(text);
                 FlagManager.canDigitize = true;
             }
             else if (FlagManager.usedImportantFile && !FlagManager.askedCloneForHelp)
             {
-                string text = System.IO.File.ReadAllText("Assets/Text/SecondHackFail.txt");
+                UnityEngine.TextAsset textAsset = (UnityEngine.TextAsset)Resources.Load("SecondHackFail");
+                string text = textAsset.text;
                 ChatManager.ProcessText(text);
             }
             else if (!FlagManager.completedSecondHack)
             {
-                string text = System.IO.File.ReadAllText("Assets/Text/SecondHackVictory.txt");
+                UnityEngine.TextAsset textAsset = (UnityEngine.TextAsset)Resources.Load("SecondHackVictory");
+                string text = textAsset.text;
                 clone.transform.position = new Vector3(-5.3f, 1.62f, 0f);
-                clone.GetComponent<PolygonCollider2D>().enabled = false;
+                //clone.GetComponent<PolygonCollider2D>().enabled = false;
                 clone.GetComponent<SpriteRenderer>().enabled = true;
                 if (FlagManager.inDigitalWorld)
                 {
