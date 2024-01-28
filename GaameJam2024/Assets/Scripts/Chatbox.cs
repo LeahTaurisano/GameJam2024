@@ -12,7 +12,10 @@ public class Chatbox : MonoBehaviour
     [SerializeField] private float serializedChatSpeed;
     [SerializeField] private Image playerChathead;
     [SerializeField] private Image cloneChathead;
-    [SerializeField] private Image computerChathead;
+    [SerializeField] private Image computerChatheadHappy;
+    [SerializeField] private Image computerChatheadAngry;
+    [SerializeField] private Image computerChatheadConfused;
+    [SerializeField] private Image computerChatheadSmirk;
 
     //sound
     [SerializeField] AudioSource audioSource;
@@ -43,23 +46,39 @@ public class Chatbox : MonoBehaviour
             {
                 if (textToDisplay[chatIndex] == '*')
                 {
+                    ResetChatheads();
                     playerChathead.enabled = true;
-                    cloneChathead.enabled = false;
-                    computerChathead.enabled = false;
                     ++chatIndex;
                 }
                 else if (textToDisplay[chatIndex] == '+')
                 {
-                    playerChathead.enabled = false;
-                    cloneChathead.enabled = false;
-                    computerChathead.enabled = true;
+                    ResetChatheads();
                     ++chatIndex;
+                    if (textToDisplay[chatIndex] == '1')
+                    {
+                        computerChatheadHappy.enabled = true;
+                        ++chatIndex;
+                    }
+                    else if (textToDisplay[chatIndex] == '2')
+                    {
+                        computerChatheadAngry.enabled = true;
+                        ++chatIndex;
+                    }
+                    else if(textToDisplay[chatIndex] == '3')
+                    {
+                        computerChatheadConfused.enabled = true;
+                        ++chatIndex;
+                    }
+                    else if(textToDisplay[chatIndex] == '4')
+                    {
+                        computerChatheadSmirk.enabled = true;
+                        ++chatIndex;
+                    }
                 }
                 else if (textToDisplay[chatIndex] == '&')
                 {
-                    playerChathead.enabled = false;
+                    ResetChatheads();
                     cloneChathead.enabled = true;
-                    computerChathead.enabled = false;
                     ++chatIndex;
                 }
                 timer += Time.deltaTime;
@@ -101,9 +120,6 @@ public class Chatbox : MonoBehaviour
                 chatText.text = "";
                 if (textToDisplay[chatIndex] == '|')
                 {
-                    playerChathead.enabled = false;
-                    cloneChathead.enabled = false;
-                    computerChathead.enabled = false;
                     chatIndex = 0;
                     boxActive = false;
 
@@ -133,5 +149,15 @@ public class Chatbox : MonoBehaviour
     private bool IsSpecialCharacter(char character)
     {
         return character == '*' || character == '+' || character == '&';
+    }
+
+    private void ResetChatheads()
+    {
+        playerChathead.enabled = false;
+        cloneChathead.enabled = false;
+        computerChatheadHappy.enabled = false;
+        computerChatheadAngry.enabled = false;
+        computerChatheadConfused.enabled = false;
+        computerChatheadSmirk.enabled = false;
     }
 }
