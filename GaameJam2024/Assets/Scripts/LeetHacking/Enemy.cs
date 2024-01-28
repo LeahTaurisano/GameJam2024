@@ -29,7 +29,8 @@ public class Enemy : MonoBehaviour
                 Destroy(number);
             }
             Hacking.FlipHackingScreen(false);
-            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            health = 100;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
     }

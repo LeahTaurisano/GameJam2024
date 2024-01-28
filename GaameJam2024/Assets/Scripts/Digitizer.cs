@@ -38,6 +38,8 @@ public class Digitizer : MonoBehaviour
         }
         if (!removedFirewall && FlagManager.disabledFirewall)
         {
+            fireWall.GetComponent<SpriteRenderer>().enabled = false;
+            fireWall.GetComponent<Collider2D>().enabled = false;
             digitalItems.Remove(fireWall);
             removedFirewall = true;
         }

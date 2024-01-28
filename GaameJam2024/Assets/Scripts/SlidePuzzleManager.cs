@@ -100,7 +100,22 @@ public class SlidePuzzleManager : MonoBehaviour
         {
             solved = true;
             FlagManager.foundImportantFile = true;
-            ChatManager.ProcessText("Placeholder Text: Important File obtained/|");
+            string text = System.IO.File.ReadAllText("Assets/Text/FileObtained.txt");
+            foreach (GameObject block in slideBlocks)
+            {
+                if (!block.GetComponent<SlideBlock>().isEmpty)
+                {
+                    block.GetComponent<SpriteRenderer>().enabled = false;
+                    block.GetComponent<BoxCollider2D>().enabled = false;
+                }
+            }
+            open = false;
+            FlagManager.slidePuzzleOpen = false;
+            foreach (GameObject interactable in interactables)
+            {
+                interactable.GetComponent<Collider2D>().enabled = true;
+            }
+            ChatManager.ProcessText(text);
         }
     }
 

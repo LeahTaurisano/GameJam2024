@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Chatbox : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI chatText;
     [SerializeField] private float serializedChatSpeed;
+    [SerializeField] private Image playerChathead;
+    [SerializeField] private Image cloneChathead;
+    [SerializeField] private Image computerChathead;
 
     private Canvas chatCanvas;
     private int chatIndex = 0;
@@ -33,6 +37,27 @@ public class Chatbox : MonoBehaviour
         {
             if (!textWaiting)
             {
+                if (textToDisplay[chatIndex] == '*')
+                {
+                    playerChathead.enabled = true;
+                    cloneChathead.enabled = false;
+                    computerChathead.enabled = false;
+                    ++chatIndex;
+                }
+                else if (textToDisplay[chatIndex] == '+')
+                {
+                    playerChathead.enabled = false;
+                    cloneChathead.enabled = false;
+                    computerChathead.enabled = true;
+                    ++chatIndex;
+                }
+                else if (textToDisplay[chatIndex] == '&')
+                {
+                    playerChathead.enabled = false;
+                    cloneChathead.enabled = true;
+                    computerChathead.enabled = false;
+                    ++chatIndex;
+                }
                 timer += Time.deltaTime;
                 if (timer >= chatSpeed)
                 {
@@ -53,12 +78,15 @@ public class Chatbox : MonoBehaviour
                     timer = 0;
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Return))
+            else if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
             {
                 textWaiting = false;
                 chatText.text = "";
                 if (textToDisplay[chatIndex] == '|')
                 {
+                    playerChathead.enabled = false;
+                    cloneChathead.enabled = false;
+                    computerChathead.enabled = false;
                     chatIndex = 0;
                     boxActive = false;
                 }

@@ -68,11 +68,21 @@ public class Hacking : MonoBehaviour
         {
             if (!FlagManager.canDigitize)
             {
+                string text = System.IO.File.ReadAllText("Assets/Text/FirstHackVictory.txt");
+                ChatManager.ProcessText(text);
                 FlagManager.canDigitize = true;
+            }
+            else if (FlagManager.usedImportantFile && !FlagManager.askedCloneForHelp)
+            {
+                string text = System.IO.File.ReadAllText("Assets/Text/SecondHackFail.txt");
+                ChatManager.ProcessText(text);
             }
             else if (!FlagManager.completedSecondHack)
             {
+                string text = System.IO.File.ReadAllText("Assets/Text/SecondHackVictory.txt");
+                ComputerUIManager.FlipDesktopUI(false);
                 FlagManager.completedSecondHack = true;
+                ChatManager.ProcessText(text);
             }
         }
     }
