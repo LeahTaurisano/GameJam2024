@@ -12,6 +12,9 @@ public class Digitizer : MonoBehaviour
     [SerializeField] private float digitizeDelay;
     [SerializeField] private GameObject fireWall;
 
+    //audio
+    [SerializeField] AudioSource audioSource;
+
     private GameObject[] interactables;
     private GameObject[] uiInteractables;
 
@@ -44,7 +47,6 @@ public class Digitizer : MonoBehaviour
             removedFirewall = true;
         }
     }
-
     private void OnTriggerEnter2D()
     {
         if (FlagManager.canDigitize && !digitizeDisabled)
@@ -99,6 +101,7 @@ public class Digitizer : MonoBehaviour
 
             }
             digitizeDisabled = true;
+            audioSource.Play();
         }
     }
 }
